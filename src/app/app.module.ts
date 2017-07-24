@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { TextToSpeech } from '@ionic-native/text-to-speech';
+
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WebApiPage } from '../pages/web-api/web-api';
@@ -30,6 +33,7 @@ import { WebApiPage } from '../pages/web-api/web-api';
   providers: [
     StatusBar,
     SplashScreen,
+    TextToSpeech,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

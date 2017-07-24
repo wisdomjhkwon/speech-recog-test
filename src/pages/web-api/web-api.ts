@@ -2,6 +2,8 @@ import { Component, trigger, state, style, transition, animate, keyframes } from
 import { NavController } from 'ionic-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { TextToSpeech } from '@ionic-native/text-to-speech';
+
 @Component({
   selector: 'page-web-api',
   templateUrl: 'web-api.html',
@@ -90,6 +92,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
   ]
 })
+
 export class WebApiPage {
 
   showFader: boolean = true;
@@ -98,6 +101,8 @@ export class WebApiPage {
   contentVisibility = 'shown';
 
   fadeVisibility = true;
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WebApiPage');
@@ -110,9 +115,15 @@ export class WebApiPage {
   flashState: String = 'first';
   fadeState: String = 'visible';
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private tts: TextToSpeech) {
 
   }
+
+  texttospeechbutton() {
+    this.tts.speak('hello World');
+    console.log('log');
+  }
+
 
   hideorShow() {
     return this.contentVisibility == 'shown' ? 'Hide' : 'Show';

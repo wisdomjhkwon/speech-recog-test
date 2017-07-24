@@ -9,11 +9,15 @@
 
 <ion-content>
 
+  <h2> TTS BUTTON </h2>>
+  <button ion-button (click)="texttospeechbutton()"> Hello! </button>
+
   <h2>Hide/Show Content</h2>
   <button ion-button (click)="toggleVisibilityContent()">
      {{hideorShow()}}
    </button>
   <div [@contentVisibility]="contentVisibility">
+
 
     <h2>Fade Text</h2>
     <button ion-button (click)="toggleVisibilityFade()">Fade Toggle</button>
