@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Ionic Blank
     </ion-title>
@@ -11,4 +11,18 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+
+  <button ion-button (click)="isSpeechSupported()"> Is Speech Supperted? </button>
+  <button ion-button (click)="getPermission()"> Get Permission </button>
+  <button ion-button (click)="hasPermission()"> Has Permission? </button>
+  <button ion-button (click)="getSupportedLanguages()"> Get Supported Languages </button>
+  <button ion-button (click)="listenForSpeech()"> Listen for Speech </button>
+  <button ion-button (click)="stopListening()"> Stop Listening </button>
+  
+  <ion-card>
+    <ion-card-content *ngFor="let speech of speechList">
+      <p> {{speech}} </p>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
