@@ -8,16 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WebApiPage } from '../pages/web-api/web-api';
+import { HerolistPage } from '../pages/herolist/herolist';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    WebApiPage
+    WebApiPage,
+    HerolistPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ import { WebApiPage } from '../pages/web-api/web-api';
   entryComponents: [
     MyApp,
     HomePage,
-    WebApiPage
+    WebApiPage,
+    HerolistPage
   ],
   providers: [
     StatusBar,

@@ -3,19 +3,20 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 
-
 import { HomePage } from '../pages/home/home';
 import { WebApiPage } from '../pages/web-api/web-api';
+import { HerolistPage } from '../pages/herolist/herolist';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = WebApiPage;
+  rootPage:any = HerolistPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, tts:TextToSpeech) {
     platform.ready().then(() => {

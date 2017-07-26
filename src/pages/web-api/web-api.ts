@@ -8,6 +8,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
   selector: 'page-web-api',
   templateUrl: 'web-api.html',
   animations: [
+    
     trigger('bounce', [
       state('bouncing', style({
         transform: 'translate3d(0,0,0)'
@@ -20,6 +21,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
         ]))
       ])
     ]),
+
     trigger('pulse', [
       state('first', style({
         transform: 'scale3d(1, 1, 1)', offset: 0
