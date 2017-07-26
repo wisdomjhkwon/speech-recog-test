@@ -30,6 +30,7 @@
         "cordova-ios": "^4.4.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
+        "cordova-plugin-speechrecognition": "^1.1.2",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-statusbar": "^2.2.2",
         "cordova-plugin-tts": "^0.2.3",
@@ -59,7 +60,8 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
-            "phonegap-nfc": {}
+            "phonegap-nfc": {},
+            "cordova-plugin-speechrecognition": {}
         },
         "platforms": [
             "ios"
