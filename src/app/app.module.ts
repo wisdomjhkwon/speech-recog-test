@@ -7,11 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { TextToSpeech } from '@ionic-native/text-to-speech';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WebApiPage } from '../pages/web-api/web-api';
 import { HerolistPage } from '../pages/herolist/herolist';
+
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { HerolistPage } from '../pages/herolist/herolist';
     StatusBar,
     SplashScreen,
     TextToSpeech,
+    SpeechRecognition,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

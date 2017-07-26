@@ -16,7 +16,7 @@ import { HerolistPage } from '../pages/herolist/herolist';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HerolistPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, tts:TextToSpeech) {
     platform.ready().then(() => {
