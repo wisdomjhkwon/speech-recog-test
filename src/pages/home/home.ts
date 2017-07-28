@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { SpeechRecognition, SpeechRecognitionListeningOptionsIOS } from '@ionic-native/speech-recognition';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'page-home',
@@ -11,18 +12,25 @@ import { SpeechRecognition, SpeechRecognitionListeningOptionsIOS } from '@ionic-
 export class HomePage {
 
   iosOptions: SpeechRecognitionListeningOptionsIOS;
-
+  isListening: boolean = false;
   speechList: Array<string> = [];
+
 
   constructor(private platform: Platform, public navCtrl: NavController, private speech: SpeechRecognition) {
 
   }
 
-  stopListening(): void {
-    this.speech.stopListening();
+  toggleListenMode(): void {
+    this.isListening = this.isListening ? false : true;
+    console.log('listening mode is now: ' + this.isListening);
   }
 
-  async isSpeechSupported():Promise<boolean> {
+  stopListening(): void {
+    this.speech.stopListening();
+
+  }
+
+  async isSpeechSupported(): Promise<boolean> {
     //this.speech.isRecognitionSupproted
     const isAvailable = await this.speech.isRecognitionAvailable();
     console.log(isAvailable);
@@ -30,7 +38,7 @@ export class HomePage {
   }
 
   async getPermission(): Promise<void> {
-    try{
+    try {
       const permission = await this.speech.requestPermission();
       console.log(permission);
       return permission;
@@ -46,35 +54,51 @@ export class HomePage {
       console.log(permission);
       return permission;
     }
-    catch(e) {
+    catch (e) {
       console.log(e);
     }
   }
 
-  async getSupportedLanguages():Promise<Array<string>> {
-    try{
+  async getSupportedLanguages(): Promise<Array<string>> {
+    try {
       const languages = await this.speech.getSupportedLanguages();
       console.log(languages);
       return languages;
     }
-    catch(e) {
+    catch (e) {
       console.error(e);
     }
   }
 
-  listenForSpeech():void {
+  listenForSpeech(): void {
+    console.log('listen action triggered');
+
+    if (this.isListening) {
+      this.speech.stopListening();
+      this.toggleListenMode();
+      return;
+    }
+
+    this.toggleListenMode();
+    let _this = this;
 
     this.iosOptions = {
       language: 'ko-KR',
       //showPartial: true
     }
-    if(this.platform.is('ios')) {
-    //this.speech.startListening(this.iosOptions).subscribe(data => console.log(data), error => console.log(error));
-    this.speech.startListening(this.iosOptions).subscribe(data => this.speechList = data, error => console.log(error));
+    if (this.platform.is('ios')) {
+      this.speech.startListening(this.iosOptions).subscribe(data => this.speechList = data, error => console.log(error));
+      console.log(this.speechList);
+
+      while(this.speechList == null) {
+        this.speech.startListening(this.iosOptions).subscribe(data => this.speechList = data, error => console.log(error));
+        console.log('in while' + this.speechList);
+      }
+    }
+
+
+
   }
-  
- 
-}
 
   /*
   speechR() {
