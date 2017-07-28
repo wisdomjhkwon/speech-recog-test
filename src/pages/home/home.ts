@@ -87,7 +87,7 @@ export class HomePage {
       //showPartial: true
     }
     if (this.platform.is('ios')) {
-      this.speech.startListening(
+      this.speech.startListening().subscribe(data=>this.speechList = data, error => console.log(error));
       //this.speech.startListening(this.iosOptions).subscribe(data => this.speechList = data, error => console.log(error), );
       //console.log(this.speechList);
 
@@ -99,10 +99,13 @@ export class HomePage {
 
     }
   }
-
-
-
 }
+
+  
+
+
+
+
 
   /*
   speechR() {
