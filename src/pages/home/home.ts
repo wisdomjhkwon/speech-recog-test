@@ -87,18 +87,22 @@ export class HomePage {
       //showPartial: true
     }
     if (this.platform.is('ios')) {
-      this.speech.startListening(this.iosOptions).subscribe(data => this.speechList = data, error => console.log(error));
-      console.log(this.speechList);
+      this.speech.startListening(
+      //this.speech.startListening(this.iosOptions).subscribe(data => this.speechList = data, error => console.log(error), );
+      //console.log(this.speechList);
 
-      while(this.speechList == null) {
-        this.speech.startListening(this.iosOptions).subscribe(data => this.speechList = data, error => console.log(error));
-        console.log('in while' + this.speechList);
-      }
+      /*
+      subscribe(): Subscription;
+      subscribe(observer: PartialObserver<T>): Subscription;
+      subscribe(next?: (value: T) => void, error?: (error: any) => void, complete?: () => void): Subscription;
+      */
+
     }
-
-
-
   }
+
+
+
+}
 
   /*
   speechR() {
@@ -134,4 +138,4 @@ export class HomePage {
     this.speech.stopListening()
   }
   */
-}
+
